@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+
+<h:form>
+		<h:dataTable value="#{crearProductoBean.listarProductos()}" var="soli"
+			class="table">
+			<h:column>
+				<f:facet name="header">Codigo</f:facet>
+														#{soli.codigo}
+													</h:column>
+			<h:column>
+				<f:facet name="header">Nombre Producto</f:facet>
+														#{soli.nombre}
+													</h:column>
+			<h:column>
+				<f:facet name="header">Nombre Porveedor</f:facet>
+														#{soli.producto.nombre}
+													</h:column>
+			<h:column>
+				<f:facet name="header">Nombre Porveedor</f:facet>
+														#{soli.sotck}
+													</h:column>
+			<h:column>
+				<h:commandButton action="#{crearProductoBean.visible(soli.codigo,soli.nombre,soli.producto,soli.sotck)}"
+					value="Solicitar Pedido">
+					<f:ajax render="mipanel mlk"/>
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	
+
+
+</h:body> 
+</html>
